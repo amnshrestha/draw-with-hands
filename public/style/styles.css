@@ -1,0 +1,4 @@
+.output_canvas{
+    border: 5px solid black;
+    transform: scaleX(-1);
+}
