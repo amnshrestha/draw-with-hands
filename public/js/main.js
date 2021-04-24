@@ -4,12 +4,10 @@ $(document).ready(()=>{
     var canvasCtx = canvasElement.getContext('2d');
     console.log(canvasCtx);
 
-    var xPrev = 0;
-    var yPrev = 0;
 
     var previousCanvas = canvasCtx.getImageData(0, 0, 1280, 720);
 
-    const acceptedDistance = 80;
+    const acceptedDistance = 10;
     
     function onResults(results) {
       canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
@@ -20,12 +18,11 @@ $(document).ready(()=>{
             var thumb = findCoordinates(landmarks,8);
             //distance Left Lip To Left Corner
             var distance = Math.sqrt( 
-                Math.pow((indexFinger[1]-thumb[0]), 2) 
+                Math.pow((indexFinger[0]-thumb[0]), 2) 
                 + 
                 Math.pow((indexFinger[1]-thumb[1]), 2) 
             );
             if(distance<acceptedDistance){
-                console.log("Drawing");
                 startDrawing(indexFinger[0],indexFinger[1]);
             }
             previousCanvas = canvasCtx.getImageData(0, 0, 1280, 720)
@@ -74,22 +71,6 @@ $(document).ready(()=>{
         var cx = parseInt(toEnumerate[idToFind].x * width);
         var cy = parseInt(toEnumerate[idToFind].y * height);
         return [cx, cy];
-    }
-
-    // function copyImage(){
-    //   const copy = document.createElement('forScreenShot');
-    //   copy.width = canvasCtx.width;
-    //   copy.height = canvasCtx.height;
-    //   const ctx2 = copy.getContext('2d');
-    //   ctx2.drawImage(canvasCtx.canvas,0, 0, copy.width, copy.height, 0, 0, copy.width, copy.height);
-    //   const dataURI = copy.toDataURL('image/jpeg');
-    //   return dataURI
-    // }
-    // Converts canvas to an image
-    function convertCanvasToImage(canvas) {
-      var image = new Image();
-      image.src = canvas.toDataURL("image/png");
-      return image;
     }
 
     
