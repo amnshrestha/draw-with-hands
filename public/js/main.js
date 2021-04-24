@@ -2,8 +2,8 @@ $(document).ready(()=>{
     const videoElement = document.getElementsByClassName('input_video')[0];
     const canvasElement = document.getElementsByClassName('output_canvas')[0];
     var canvasCtx = canvasElement.getContext('2d');
-    console.log(canvasCtx);
 
+    var radius = 15;
     var xPrev = -1;
     var yPrev = -1;
     var drawOn = false;
@@ -29,19 +29,26 @@ $(document).ready(()=>{
 
             var normalColor = "#999999";
             var drawingColor = "#33cc99";
+            var isDrawing = false;
             if(distance<acceptedDistance){
                 startDrawing(indexFinger[0],indexFinger[1]);
                 normalColor = drawingColor;
+                isDrawing = true;
             }else{
               drawOn = false;
             }
             previousCanvas = canvasCtx.getImageData(0, 0, 1280, 720)
             canvasCtx.save();
             canvasCtx.fillStyle = normalColor;
-            canvasCtx.fillRect(indexFinger[0],indexFinger[1],15,15);
-            canvasCtx.fillRect(thumb[0],thumb[1],15,15);
+            canvasCtx.beginPath();
+            canvasCtx.arc(indexFinger[0],indexFinger[1],radius,0,Math.PI*2);
+            if(!isDrawing)canvasCtx.stroke();
+            else canvasCtx.fill();
+            canvasCtx.beginPath();
+            canvasCtx.arc(thumb[0],thumb[1],radius,0,Math.PI*2);
+            if(!isDrawing)canvasCtx.stroke();
+            else canvasCtx.fill();
             canvasCtx.restore();
-            // canvasCtx.putImageData(previousCanvas,0,0);
         }
       }
 
@@ -49,11 +56,14 @@ $(document).ready(()=>{
 
     function startDrawing(x, y){
       console.log("Drawing");
+      canvasCtx.save();
+      canvasCtx.beginPath();
+      canvasCtx.arc(x,y,radius,0,Math.PI*2);
+      canvasCtx.fill();
+      canvasCtx.restore();
       if(!drawOn){
         drawOn = true;
-        canvasCtx.fillRect(x,y,15,15);
       }else{
-        canvasCtx.fillRect(x,y,15,15);
         roundLine(x,y,xPrev,yPrev);
       }
       xPrev = x;
@@ -68,7 +78,11 @@ $(document).ready(()=>{
       for(var i =0;i<distance;i++){
         var x = startX + (i+0.0)/distance * dx;
         var y = startY + (i+0.0)/distance * dy;
-        canvasCtx.fillRect(x,y,15,15);
+        canvasCtx.save();
+        canvasCtx.beginPath();
+        canvasCtx.arc(x,y,radius,0,Math.PI*2);
+        canvasCtx.fill();
+        canvasCtx.restore();
       }
     }
     

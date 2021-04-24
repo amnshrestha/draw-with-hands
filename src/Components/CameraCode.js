@@ -1,6 +1,5 @@
 import React from 'react'
 
-import MainScript from './MainScript'
 
 export default function CameraCode() {
     return (
