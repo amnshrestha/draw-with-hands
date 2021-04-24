@@ -7,6 +7,8 @@ $(document).ready(()=>{
     var xPrev = -1;
     var yPrev = -1;
     var drawOn = false;
+    var drawingColor = '#000000';
+    canvasCtx.fillStyle = drawingColor;
 
 
     var previousCanvas = canvasCtx.getImageData(0, 0, 1280, 720);
@@ -115,6 +117,26 @@ $(document).ready(()=>{
         var cy = parseInt(toEnumerate[idToFind].y * height);
         return [cx, cy];
     }
+
+
+    $('#clearScreen').click(()=>{
+      canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
+      previousCanvas = canvasCtx.getImageData(0, 0, 1280, 720)
+    });
+
+
+    $('#utensilSelect').change(function(){ 
+      var value = $(this).val();
+    });
+    brushSizeSelect
+    $('#brushSizeSelect').change(function(){ 
+      var value = $(this).val();
+      radius = value;
+    });
+    $('#colorSelect').change(function(){ 
+      var value = $(this).val();
+      canvasCtx.fillStyle = value;
+    });
 
     
 });
