@@ -1,0 +1,9 @@
+.videoPlaces{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.output_canvas{
+    border: 5px solid black;
+    transform: scaleX(-1);
+}

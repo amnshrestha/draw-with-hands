@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/draw-with-hands/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/draw-with-hands/static/js/main.c7b24016.chunk.js",
+    "main.js.map": "/draw-with-hands/static/js/main.c7b24016.chunk.js.map",
+    "runtime-main.js": "/draw-with-hands/static/js/runtime-main.05bd2eb7.js",
+    "runtime-main.js.map": "/draw-with-hands/static/js/runtime-main.05bd2eb7.js.map",
+    "static/js/2.a182fb28.chunk.js": "/draw-with-hands/static/js/2.a182fb28.chunk.js",
+    "static/js/2.a182fb28.chunk.js.map": "/draw-with-hands/static/js/2.a182fb28.chunk.js.map",
+    "static/js/3.538b4fbb.chunk.js": "/draw-with-hands/static/js/3.538b4fbb.chunk.js",
+    "static/js/3.538b4fbb.chunk.js.map": "/draw-with-hands/static/js/3.538b4fbb.chunk.js.map",
+    "index.html": "/draw-with-hands/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/draw-with-hands/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.a182fb28.chunk.js.LICENSE.txt": "/draw-with-hands/static/js/2.a182fb28.chunk.js.LICENSE.txt",
+    "static/media/blackDot.e566383f.png": "/draw-with-hands/static/media/blackDot.e566383f.png",
+    "static/media/logo.6ce24c58.svg": "/draw-with-hands/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.05bd2eb7.js",
+    "static/js/2.a182fb28.chunk.js",
+    "static/css/main.9d5b29c0.chunk.css",
+    "static/js/main.c7b24016.chunk.js"
+  ]
+}
