@@ -93,8 +93,8 @@ $(document).ready(()=>{
     }});
     hands.setOptions({
       maxNumHands: 2,
-      minDetectionConfidence: 0.95,
-      minTrackingConfidence: 0.95
+      minDetectionConfidence: 0.90,
+      minTrackingConfidence: 0.90
     });
     hands.onResults(onResults);
     
