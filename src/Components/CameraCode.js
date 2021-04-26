@@ -13,9 +13,10 @@ export default function CameraCode() {
             <select aria-label="Utensil" id="utensilSelect">
                 <option value="brush" selected >Brush</option>
                 <option value="eraser" >Eraser</option>
-                <option value="line">Line</option>
+                {/* <option value="line">Line</option> */}
             </select>
             <select aria-label="Brush Size" id="brushSizeSelect">
+                <option value="5">5</option>
                 <option value="10">10</option>
                 <option value="15" selected>15</option>
                 <option value="20">20</option>

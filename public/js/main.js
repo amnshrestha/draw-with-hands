@@ -93,8 +93,8 @@ $(document).ready(()=>{
     }});
     hands.setOptions({
       maxNumHands: 2,
-      minDetectionConfidence: 0.9,
-      minTrackingConfidence: 0.9
+      minDetectionConfidence: 0.95,
+      minTrackingConfidence: 0.95
     });
     hands.onResults(onResults);
     
@@ -127,14 +127,20 @@ $(document).ready(()=>{
 
     $('#utensilSelect').change(function(){ 
       var value = $(this).val();
+      if(value ==='brush'){
+        canvasCtx.fillStyle = drawingColor;
+      }else if( value === 'eraser'){
+        canvasCtx.fillStyle = '#ffffff';
+      }
     });
-    brushSizeSelect
+    
     $('#brushSizeSelect').change(function(){ 
       var value = $(this).val();
       radius = value;
     });
     $('#colorSelect').change(function(){ 
       var value = $(this).val();
+      drawingColor = value;
       canvasCtx.fillStyle = value;
     });
 
